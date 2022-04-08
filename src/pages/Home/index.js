@@ -1,42 +1,19 @@
-import { Container, MovieList, Movie } from "./styles";
+import { Container, MovieList, Movie } from "./styles"
+import {APIKey} from '../../config/key'
+import {useState, useEffect} from 'react'
+import { Link } from "react-router-dom"
 
 function Home(){
-
-    const movies = [
-        {
-        id:1,
-        title:'Spider Man',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-        },
-        {
-        id:2,
-        title:'Venum',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-
-        },
-        {
-        id:3,
-        title:'Doctor',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-
-        },
-        {
-        id:1,
-        title:'Spider Man',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-        },
-        {
-        id:2,
-        title:'Venum',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-
-        },
-        {
-        id:3,
-        title:'Doctor',
-        image_url:'https://upload.wikimedia.org/wikipedia/pt/thumb/0/00/Spider-Man_No_Way_Home_poster.jpg/250px-Spider-Man_No_Way_Home_poster.jpg'
-        }
-]
+    const [movies, setMovies] = useState([])
+    const image_path = 'https://image.tmdb.org/t/p/w500'
+    useEffect(()=>{
+        //consumindo a API
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&language=en-US&page=1`)
+        .then(response => response.json())
+        .then(data => {
+            setMovies(data.results)
+        })
+    },[])
 
     return(
         <Container>
@@ -45,7 +22,7 @@ function Home(){
             {movies.map(movie => {
                 return(
                     <Movie key={movie.id}>
-                    <a href="https://github.com/NaironCarneiro"><img src={movie.image_url} alt={movie.title} /></a>
+                        <Link to={`/details/${movie.id}`}><img src={`${image_path}${movie.poster_path}`} alt={movie.title} /></Link>
                     <span>{movie.title}</span>
                     </Movie>
                 )
