@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { APIKey } from "../../.config/key"
+import { APIKey } from "../../config/key"
 import { Container } from "./styles"
 import { useEffect, useState } from 'react'
 import ErrorBoundary from "../../ErrorBoundary"
