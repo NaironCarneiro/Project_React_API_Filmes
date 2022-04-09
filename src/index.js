@@ -12,5 +12,7 @@ ReactDOM.render(
       <Route path='/details/:id' element={<Details/>}/>
     </Routes>
   </BrowserRouter>,
+  
   document.getElementById('root')
+ 
 );

@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom"
 import { APIKey } from "../../config/key"
 import { Container } from "./styles"
 import { useEffect, useState } from 'react'
+import ErrorBoundary from "../../ErrorBoundary"
 
 function Details(){
   const { id } = useParams()
-  const {movie, setMovie} = useState({})
+  const {movie, setMovie} = useState([])
   const image_path = 'https://image.tmdb.org/t/p/w500'
 
   useEffect(() => {
@@ -22,26 +23,32 @@ function Details(){
         }
         console.log(movie)
         setMovie(movie)
+       
+        
 
         })
   }, [id])
 
+  // console.log("opaaaa "+ data.results)
+
   return (
-    // <h1>nairon</h1>
-    <h1>opa dd {movie.title}</h1>
-    // <Container>
-    //   <h1>ola</h1>
-    //   {/* <h1>{movie.title}</h1> */}
-    //    <div className="movie">
-    //      {/* <img src={movie.image} alt={movie.sinopse}/> */}
-    //       {/* <div className="details">
-    //         <h1>{movie.title}</h1>
-    //         <span>Sinopse: {movie.sinopse}</span>
-    //         <span className="date-release">Data de lançamento: {movie.dateRelease}</span>
-    //         <button>Voltar</button>
-    //       </div> */}
-    //    </div> 
-    // </Container>
+    <Container>
+      <ErrorBoundary>
+        <h1>nairon</h1>
+       <div className="movie">
+         {/* <img src={movie.image} alt={movie.sinopse}/> */}
+         <h1>{movie.sinopse}</h1>
+        
+         <h1>deu errado</h1>
+          {/* <div className="details">
+            <h1>{movie.title}</h1>
+            <span>Sinopse: {movie.sinopse}</span>
+            <span className="date-release">Data de lançamento: {movie.dateRelease}</span>
+            <button>Voltar</button>
+          </div>  */}
+        </div> 
+        </ErrorBoundary>
+    </Container>
   )
 }
 export default Details
