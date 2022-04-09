@@ -7,7 +7,7 @@ function Home(){
     const [movies, setMovies] = useState([])
     const image_path = 'https://image.tmdb.org/t/p/w500'
     useEffect(()=>{
-        //consumindo a API
+        //consumindo a API - buscando os filmes mais bem avaliados
         fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKey}&language=en-US&page=1`)
         .then(response => response.json())
         .then(data => {
