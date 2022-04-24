@@ -1,6 +1,6 @@
 # React Project - MovieDB API
 
-This project uses React library to consume a list of popular movies from the MovieDB API.
+This project uses React library to consume a list of best rated movies from the MovieDB API.
 Where you can also see the details the movie. 
 
 <h3> - Page List Movies</h3>
