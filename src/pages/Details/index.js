@@ -30,8 +30,6 @@ function Details(){
         })
   }, [id])
 
-  // console.log("opaaaa "+ data.results)
-
   return (
     <Container>
       <ErrorBoundary>
