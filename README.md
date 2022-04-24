@@ -1,6 +1,22 @@
+# React Project - MovieDB API
 
+This project uses React library to consume a list of popular movies from the MovieDB API.
+Where you can also see the details the movie. 
 
+<h3> - Page List Movies</h3>
+<p align="center">
+<img width="800em" src="/src/Assets/listMovies.png" alt="List Movies"/>
+</p>
 
+<h3> - Page Details Movie</h3>
+<p align="center">
+<img width="800em" src="/src/Assets/details.png" alt="Details Movies"/>
+</p>
+
+<h3>
+In this project, technologies were used ReactJS, React Router e Styled Components.
+</h3>
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
